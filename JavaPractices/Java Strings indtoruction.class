@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.text.ParseException;
+import java.util.Arrays;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        try{
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String B=sc.next();
+        /* Enter your code here. Print output to STDOUT. */
+        System.out.println(A.length()+B.length());
+        String firstA=A.substring(0,1);
+        String firstB= B.substring(0,1);
+        byte[] bytes = A.getBytes("US-ASCII");
+        int nA=bytes[0];
+        bytes = B.getBytes("US-ASCII");
+        int nB=bytes[0];
+        
+        if(nA>nB)
+            System.out.println("Yes");
+        else
+            System.out.println("No");
+            
+        System.out.println(firstA.toUpperCase()+A.substring(1,A.length())+" "+
+        firstB.toUpperCase()+B.substring(1,B.length()));
+        }
+        catch (Exception ex)
+        {
+            System.out.println("exception");
+        }
+    }
+}
+
+
+
+
