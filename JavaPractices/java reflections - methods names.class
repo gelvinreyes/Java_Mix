@@ -1,0 +1,19 @@
+public class Solution {
+
+        public static void main(String[] args){
+            //Class student = ~~~Complete this line~~~;
+            Student student = new Student();
+            Method[] methods =  student.getClass().getDeclaredMethods();
+            //Field[] fields = student.getClass().getDeclaredFields();
+
+            ArrayList<String> methodList = new ArrayList<>();
+            for(Method m : methods){
+                methodList.add(m.getName());
+            }
+            Collections.sort(methodList);
+            for(String name: methodList){
+                System.out.println(name);
+            }
+        }
+
+    }
