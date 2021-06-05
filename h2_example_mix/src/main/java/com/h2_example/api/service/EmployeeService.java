@@ -17,6 +17,12 @@ class EmployeeService {
     private final EmployeeRepository employeeRepository;
 
     public Employee saveEmployee(final Employee employee){
+        log.info("employee was saved");
+        return employeeRepository.save(employee);
+    }
+
+    public Employee updateEmployee(final Employee employee){
+        log.info("employee was updated");
         return employeeRepository.save(employee);
     }
 

@@ -8,12 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,12 +26,7 @@ public class EmployeeController {
         return new ResponseEntity(persisted, HttpStatus.OK);
     }
 
-//
-//    @GetMapping("/getEmployee/{dept}")
-//    public List<Employee> getEmployeeByDept(@PathVariable String dept){
-//        return repository.findByDept(dept);
-//    }
-//
+
     @GetMapping("/employee/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable final int id){
         try {
@@ -58,6 +48,12 @@ public class EmployeeController {
     public ResponseEntity<String> deleteEmployeeById(@PathVariable final int id){
         employeeService.deleteById(id);
         return new ResponseEntity("Employee with id " + id +" was deleted", HttpStatus.OK);
+    }
+
+    @PutMapping("/employee/")
+    public ResponseEntity<Employee> updateEmployee(@RequestBody final Employee employee){
+        employeeService.updateEmployee(employee);
+        return new ResponseEntity(employee, HttpStatus.OK);
     }
 
 }
